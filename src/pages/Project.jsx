@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import ContactForm from "../components/contactForm/ContactForm";
 
 const Project = () => {
   return (
@@ -45,14 +46,12 @@ const Project = () => {
               only beautifies the space but also ensures long-lasting
               durability.
             </p>
-            {/* Add an image to the left section */}
             <img
               src="assets/projects/Interior Painting Service.jpg"
               alt="A visual representation of our projects"
               className="mt-6 rounded-lg"
             />
           </div>
-
           {/* Right Section (Project Cards) */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Project Card 1 */}
@@ -77,7 +76,6 @@ const Project = () => {
                 detail was handled with precision and care.
               </p>
             </div>
-
             {/* Project Card 2 */}
             <div className="bg-white rounded-lg shadow-lg p-6">
               <img
@@ -102,6 +100,100 @@ const Project = () => {
             </div>
           </div>
         </div>
+      </div>
+
+      {/* Add Projects Card */}
+      <div className="py-12 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-screen-xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {/* Card 1 */}
+          <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:scale-105 transform transition duration-300">
+            <img
+              src="assets/projects/Residential Painting Service.avif"
+              alt="Card 1"
+              className="w-full h-64 object-cover" // Set fixed height here
+            />
+            <div className="p-6">
+              <h3 className="text-xl font-bold text-gray-800">
+                Residential Painting Service
+              </h3>
+            </div>
+          </div>
+          {/* Card 2 */}
+          <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:scale-105 transform transition duration-300">
+            <img
+              src="assets/projects/Villa Painting Service.jpg"
+              alt="Card 2"
+              className="w-full h-64 object-cover"
+            />
+            <div className="p-6">
+              <h3 className="text-xl font-bold text-gray-800">
+                Villa Painting Service
+              </h3>
+            </div>
+          </div>
+          {/* Card 3 */}
+          <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:scale-105 transform transition duration-300">
+            <img
+              src="assets/projects/Interior Wall Painting Service.jpg"
+              alt="Card 3"
+              className="w-full h-64 object-cover"
+            />
+            <div className="p-6">
+              <h3 className="text-xl font-bold text-gray-800">
+                Interior Wall Painting Service
+              </h3>
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* second row of cards */}
+      <div className="px-4 sm:px-6 lg:px-8">
+        <div className="max-w-screen-xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {/* Card 4 */}
+          <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:scale-105 transform transition duration-300">
+            <img
+              src="assets/projects/Enamal Painting Service.jpg"
+              alt="Card 1"
+              className="w-full h-64 object-cover"
+            />
+            <div className="p-6">
+              <h3 className="text-xl font-bold text-gray-800">
+                Enamal Painting Service
+              </h3>
+            </div>
+          </div>
+          {/* Card 5 */}
+          <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:scale-105 transform transition duration-300">
+            <img
+              src="assets/projects/Asian Paints Painting Service.jpg"
+              alt="Card 2"
+              className="w-full h-64 object-cover"
+            />
+            <div className="p-6">
+              <h3 className="text-xl font-bold text-gray-800">
+                Asian Paints Painting Service
+              </h3>
+            </div>
+          </div>
+          {/* Card 6 */}
+          <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:scale-105 transform transition duration-300">
+            <img
+              src="assets/projects/Rental Home Flats Painting Service.jpg"
+              alt="Card 3"
+              className="w-full h-64 object-cover"
+            />
+            <div className="p-6">
+              <h3 className="text-xl font-bold text-gray-800">
+                Rental Home Flats Painting Service
+              </h3>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* contact us  */}
+      <div>
+        <ContactForm />
       </div>
     </div>
   );

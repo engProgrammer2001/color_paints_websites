@@ -5,6 +5,29 @@ import { MdMarkEmailRead } from "react-icons/md";
 import { MdWifiCalling } from "react-icons/md";
 
 const Contact = () => {
+  const [result, setResult] = React.useState("");
+
+  const onSubmit = async (event) => {
+    event.preventDefault();
+    setResult("Message Sending.....");
+    const formData = new FormData(event.target);
+    formData.append("access_key", "33842416-bccc-402b-b9b7-645278634f9d");
+
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: formData,
+    });
+
+    const data = await response.json();
+    if (data.success) {
+      setResult("Form Submitted Successfully");
+      event.target.reset();
+    } else {
+      console.log("Error", data);
+      setResult(data.message);
+    }
+  };
+
   return (
     <div>
       {/* Hero Section */}
@@ -27,7 +50,6 @@ const Contact = () => {
           <h1 className="text-4xl font-bold mt-4">CONTACT US</h1>
         </div>
       </div>
-
       {/* Header Section with Contact Info */}
       <div className="bg-zinc-800 mt-8 text-white py-4 px-8 flex flex-col items-center space-y-4">
         <div className="flex justify-center items-center space-x-2">
@@ -56,7 +78,6 @@ const Contact = () => {
           </span>
         </div>
       </div>
-
       {/* Main Content Section */}
       <div className="p-4 bg-gray-100 my-12">
         <div className="max-w-7xl mx-auto grid gap-8 md:grid-cols-2">
@@ -66,13 +87,14 @@ const Contact = () => {
           {/* Contact Form Section */}
           <div className="bg-white shadow-lg rounded-lg p-6">
             <h2 className="text-2xl font-bold mb-4">Get in Touch</h2>
-            <form className="space-y-4">
+            <form onSubmit={onSubmit} className="space-y-4">
               <div>
                 <label className="block text-gray-700 font-semibold">
                   Name
                 </label>
                 <input
                   type="text"
+                  name="name"
                   placeholder="Your Name"
                   className="w-full p-2 border border-gray-300 rounded-lg"
                 />
@@ -83,6 +105,7 @@ const Contact = () => {
                 </label>
                 <input
                   type="number"
+                  name="number"
                   placeholder="Your Number"
                   className="w-full p-2 border border-gray-300 rounded-lg"
                 />
@@ -93,6 +116,7 @@ const Contact = () => {
                 </label>
                 <input
                   type="email"
+                  name="email"
                   placeholder="Your Email"
                   className="w-full p-2 border border-gray-300 rounded-lg"
                 />
@@ -103,6 +127,7 @@ const Contact = () => {
                 </label>
                 <textarea
                   placeholder="Your Message"
+                  name="message"
                   className="w-full p-2 border border-gray-300 rounded-lg"
                   rows="4"
                 ></textarea>
@@ -114,12 +139,14 @@ const Contact = () => {
                 Send Message
               </button>
             </form>
+            <span className="text-green-600 py-3 ">{result}</span>
           </div>
         </div>
       </div>
       {/* Map Section */}
       <div className="p-4 bg-gray-100">
-        <h2 className="text-2xl font-bold mb-4 text-center">Our Location</h2>
+        <h2 className="text-2xl font-bold mb-1 text-center">Our Location</h2>
+        <p className="text-center mb-6">We are located at this address</p>
         <div className="relative w-full">
           <iframe
             title="Location Map"

@@ -28,13 +28,12 @@ const About = () => {
           <h1 className="text-4xl font-bold mt-4">ABOUT US</h1>
         </div>
       </div>
-
       {/* About Section */}
       <div className="py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Left Section (Text) */}
           <div className="flex flex-col justify-center">
-            <h2 className="text-3xl font-semibold text-gray-800 mb-4">
+            <h2 className="text-3xl font-semibold underline text-pink-600 mb-4">
               About Me
             </h2>
             <p className="text-lg text-gray-700">
@@ -63,7 +62,6 @@ const About = () => {
               with our expert painting solutions and impeccable quality!
             </p>
           </div>
-
           {/* Right Section (Images) */}
           <div className="">
             <img
@@ -74,7 +72,6 @@ const About = () => {
           </div>
         </div>
       </div>
-
       {/* card section  */}
       <div class="container mx-auto px-4">
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
@@ -83,7 +80,7 @@ const About = () => {
               <FaUsers />
             </div>
             <h3 class="text-2xl font-semibold text-center">Happy Clients</h3>
-            <h1 class="text-4xl font-bold text-center mt-4">150+</h1>
+            <h1 class="text-4xl font-bold text-center mt-4">170+</h1>
           </div>
           <div class="bg-gradient-to-r from-purple-400 to-pink-500 text-white p-6 rounded-lg shadow-lg hover:scale-105 transition-transform duration-300 h-56">
             <div class="flex items-center justify-center text-6xl mb-4">
@@ -97,7 +94,7 @@ const About = () => {
               <FaMedal />
             </div>
             <h3 class="text-2xl font-semibold text-center">Experience</h3>
-            <h1 class="text-4xl font-bold text-center mt-4">8+ Years</h1>
+            <h1 class="text-4xl font-bold text-center mt-4">15+ Years</h1>
           </div>
           <div class="bg-gradient-to-r from-teal-400 to-blue-500 text-white p-6 rounded-lg shadow-lg hover:scale-105 transition-transform duration-300 h-56">
             <div class="flex items-center justify-center text-6xl mb-4">
@@ -108,12 +105,11 @@ const About = () => {
           </div>
         </div>
       </div>
-
       {/* our mission and vision  */}
       <div className="my-12">
         <div class="container mx-auto px-4">
           <div>
-            <h2 className="text-3xl font-semibold text-gray-800 mb-4 text-center my-14">
+            <h2 className="text-3xl underline text-pink-600 font-semibold mb-8 text-center my-14">
               OUR MISSION AND VISION
             </h2>
           </div>
@@ -135,7 +131,6 @@ const About = () => {
                 toward a better tomorrow.
               </p>
             </div>
-
             <div class="flex-1 bg-gradient-to-r from-purple-400 to-pink-500 text-white p-6 rounded-lg shadow-lg hover:scale-105 hover:from-purple-500 hover:to-pink-600 transition-transform duration-300">
               <h2 class="text-2xl font-bold mb-4 text-center">Our Vision</h2>
               <p class="text-lg text-center">

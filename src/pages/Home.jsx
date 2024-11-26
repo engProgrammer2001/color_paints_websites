@@ -18,53 +18,84 @@ import Testimonial from "../components/Testimonial/Tesimonial.jsx";
 import ContactForm from "../components/contactForm/ContactForm.jsx";
 
 const Home = () => {
+  const [result, setResult] = React.useState("");
+
+  const onSubmit = async (event) => {
+    event.preventDefault();
+    setResult("Message Sending....");
+
+    try {
+      const formData = new FormData(event.target);
+      formData.append("access_key", "33842416-bccc-402b-b9b7-645278634f9d");
+
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP Error: ${response.status}`);
+      }
+
+      const data = await response.json();
+      if (data.success) {
+        setResult("Form Submitted Successfully");
+        event.target.reset();
+      } else {
+        console.log("Error", data);
+        setResult(data.message);
+      }
+    } catch (error) {
+      console.error("Submission failed:", error);
+      setResult("Failed to submit the form. Please try again.");
+    }
+  };
+
   return (
     <div>
       <Hero />
       <div>
-        <div className="flex flex-wrap justify-center gap-4 mt-32">
+        <div className="flex flex-wrap justify-center gap-6 mt-24">
           {/* Interior Texture Card */}
-          <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 max-w-xs rounded-lg overflow-hidden shadow-lg bg-card">
-            <Link to="/paint-details?type=interior">
+          <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 max-w-sm rounded-lg overflow-hidden shadow-lg bg-card transform transition duration-300 hover:scale-105 hover:shadow-xl">
+            <Link to="/interior-texture-details-page">
               <img
                 src={img1}
                 alt="Interior Texture"
-                className="w-full h-48 object-cover"
+                className="w-full h-56 object-cover hover:opacity-90"
               />
-              <div className="p-4 text-center">
-                <h2 className="text-lg font-semibold text-primary">
+              <div className="p-6 text-center">
+                <h2 className="text-xl font-bold text-primary hover:text-secondary">
                   INTERIOR TEXTURE
                 </h2>
               </div>
             </Link>
           </div>
-
           {/* Exterior Texture Card */}
-          <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 max-w-xs rounded-lg overflow-hidden shadow-lg bg-card">
-            <Link to="/paint-details?type=exterior">
+          <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 max-w-sm rounded-lg overflow-hidden shadow-lg bg-card transform transition duration-300 hover:scale-105 hover:shadow-xl">
+            <Link to="/exterior-texture-details-page">
               <img
                 src={img2}
                 alt="Exterior Texture"
-                className="w-full h-48 object-cover"
+                className="w-full h-56 object-cover hover:opacity-90"
               />
-              <div className="p-4 text-center">
-                <h2 className="text-lg font-semibold text-primary">
+              <div className="p-6 text-center">
+                <h2 className="text-xl font-bold text-primary hover:text-secondary">
                   EXTERIOR TEXTURE
                 </h2>
               </div>
             </Link>
           </div>
-
           {/* Liquid Wallpaper Card */}
-          <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 max-w-xs rounded-lg overflow-hidden shadow-lg bg-card">
-            <Link to="/paint-details?type=liquid">
+          <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 max-w-sm rounded-lg overflow-hidden shadow-lg bg-card transform transition duration-300 hover:scale-105 hover:shadow-xl">
+            <Link to="/liquid-wallpaper-details-page">
               <img
                 src={img3}
                 alt="Liquid Wallpaper"
-                className="w-full h-48 object-cover"
+                className="w-full h-56 object-cover hover:opacity-90"
               />
-              <div className="p-4 text-center">
-                <h2 className="text-lg font-semibold text-primary">
+              <div className="p-6 text-center">
+                <h2 className="text-xl font-bold text-primary hover:text-secondary">
                   LIQUID WALLPAPER
                 </h2>
               </div>
@@ -73,7 +104,7 @@ const Home = () => {
         </div>
 
         {/* request for quote section  */}
-        <div className="w-full p-4 lg:px-32 lg:pt-24 items-center">
+        <div className="w-full bg-red-200 mt-5 p-4 lg:px-32 lg:mt-24 items-center">
           <h1 className="text-3xl font-bold text-center mt-12">
             We offer Residential & Commercial Painting services
           </h1>
@@ -93,17 +124,18 @@ const Home = () => {
           </div>
           <div className="flex justify-center items-center mt-14">
             <Link
-              to="/contact"
+              to="tel:7991231430"
               className="p-6 bg-gradient-to-r from-teal-500 to-pink-500 text-white font-semibold text-2xl rounded-lg hover:from-pink-500 hover:to-teal-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 inline-flex items-center"
             >
-              Request for a Quote
+              Request for a Quote / Make Call
             </Link>
           </div>
         </div>
+
         {/* why choose us section  */}
         <div>
           <div className="w-full p-4 lg:p-28 items-center">
-            <h3 className="text-6xl text-center lg:mt-14">
+            <h3 className="text-xl lg:text-6xl text-center lg:mt-14">
               ✨Why Choose Us?✨
             </h3>
             <p className="text-lg text-center mt-8">
@@ -127,7 +159,6 @@ const Home = () => {
                   finishes.
                 </p>
               </div>
-
               {/* Card 2 */}
               <div className="flex flex-col items-center bg-gray-800 p-6 rounded-lg shadow-lg hover:scale-105 transition-transform duration-300">
                 <FaTools className="text-8xl text-teal-500 mb-4" />
@@ -139,7 +170,6 @@ const Home = () => {
                   needs are met with excellence.
                 </p>
               </div>
-
               {/* Card 3 */}
               <div className="flex flex-col items-center bg-gray-800 p-6 rounded-lg shadow-lg hover:scale-105 transition-transform duration-300">
                 <FaUserShield className="text-8xl text-teal-500 mb-4" />
@@ -151,7 +181,6 @@ const Home = () => {
                   every time.
                 </p>
               </div>
-
               {/* Card 4 */}
               <div className="flex flex-col items-center bg-gray-800 p-6 rounded-lg shadow-lg hover:scale-105 transition-transform duration-300">
                 <FaCheckCircle className="text-8xl text-teal-500 mb-4" />
@@ -184,6 +213,108 @@ const Home = () => {
                   We provide both residential and commercial painting services
                   with outstanding results.
                 </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          {/* add revisite form */}
+          <div>
+            <h1 className="text-4xl text-center font-bold my-4">
+              Schedule a Re-visit
+            </h1>
+          </div>
+          <div className="bg-gray-200 p-6 flex items-center justify-center">
+            {/* Main container with background color */}
+            <div className="bg-white shadow-lg rounded-lg w-full  grid grid-cols-1 md:grid-cols-2">
+              {/* Left Side */}
+              <div className="p-6 flex flex-col justify-center bg-blue-100">
+                <h2 className="text-5xl font-bold text-teal-500 mb-4">
+                  Schedule a Revisit with Us
+                </h2>
+                <p className="text-xl">
+                  Get in touch with us today to book a consultation. Our expert
+                  painting services can give your home a fresh and beautiful new
+                  look. Whether you want to brighten up your living room, add a
+                  pop of color to your bedroom, or give your entire house a
+                  makeover, we are here to help. We use high-quality materials
+                  and skilled techniques to make your walls look amazing. Let us
+                  help you create a space you’ll love to live in. Don’t
+                  wait—contact us now and see the difference our painting
+                  services can make for your home!
+                </p>
+              </div>
+              {/* Right Side */}
+              <div className="p-6 bg-gray-50">
+                {/* <h3 className="text-xl font-semibold text-gray-700 mb-4">
+                  Contact Us
+                </h3> */}
+                <form onSubmit={onSubmit} className="space-y-4">
+                  <div>
+                    <label
+                      htmlFor="name"
+                      className="block text-sm font-medium text-gray-600"
+                    >
+                      Name
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      className="mt-1 p-2 block w-full border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      placeholder="Your Name"
+                    />
+                  </div>
+                  <div>
+                    <label
+                      htmlFor="number"
+                      className="block text-sm font-medium text-gray-600"
+                    >
+                      Number
+                    </label>
+                    <input
+                      type="number"
+                      id="number"
+                      className="mt-1 p-2 block w-full border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      placeholder="Your Name"
+                    />
+                  </div>
+                  <div>
+                    <label
+                      htmlFor="email"
+                      className="block text-sm font-medium text-gray-600"
+                    >
+                      Email
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      className="mt-1 p-2 block w-full border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      placeholder="Your Email"
+                    />
+                  </div>
+                  <div>
+                    <label
+                      htmlFor="message"
+                      className="block text-sm font-medium text-gray-600"
+                    >
+                      Message
+                    </label>
+                    <textarea
+                      id="message"
+                      rows="4"
+                      className="mt-1 p-2 block w-full border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      placeholder="Your Message"
+                    ></textarea>
+                  </div>
+                  <button
+                    type="submit"
+                    className="w-full bg-gradient-to-r from-teal-500 to-pink-500 py-2 px-4 text-white font-semibold rounded-md hover:from-pink-500 hover:to-teal-500"
+                  >
+                    Book Now
+                  </button>
+                </form>
+                <span className="text-green-500">{result}</span>
               </div>
             </div>
           </div>

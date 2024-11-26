@@ -10,6 +10,9 @@ import PageNotFound from "./pages/PageNotFound.jsx";
 import ServiceDetails from "./components/ServiceDetails/ServiceDetails.jsx";
 import Project from "./pages/Project.jsx";
 import PlanWithProject from "./pages/PlanWithProject.jsx";
+import InteriorTexture from "./components/InteriorTexture/InteriorTexture.jsx";
+import ExteriorTexture from "./components/ExteriorTexture/ExteriorTexture.jsx";
+import LiquidWallpaper from "./components/LiquiedWalpapper/LiquiedWalpapper.jsx";
 
 function App() {
   const services = [
@@ -110,6 +113,7 @@ function App() {
       shortDescription: "Complete house painting solutions.",
     },
   ];
+  
   return (
     <Router>
       <Navbar />
@@ -125,6 +129,9 @@ function App() {
           />
           <Route path="/projects" element={<Project />} />
           <Route path="/plan-with-project" element={<PlanWithProject />} />
+          <Route path="/interior-texture-details-page" element={<InteriorTexture />} />
+          <Route path="/exterior-texture-details-page" element={<ExteriorTexture />} />
+          <Route path="/liquid-wallpaper-details-page" element={<LiquidWallpaper />} />
           <Route path="/*" element={<PageNotFound />} />
         </Routes>
       </div>

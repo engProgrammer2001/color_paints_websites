@@ -52,7 +52,7 @@ const Gallery = () => {
       <div>
         <h2 className="text-5xl font-bold text-center mb-4">Gallery</h2>
         <p className="font-semibold text-center">Welcome to our gallery</p>
-        <p className="px-8 lg:px-24 pt-4 pb-14 text-lg text-center text-gray-700">
+        <p className="px-4 lg:px-24 pt-4 pb-14 text-lg text-center text-gray-700">
           "Welcome to our curated gallery, where every painting tells a story,
           capturing moments of inspiration, emotion, and beauty. Our collection
           spans diverse styles and techniques, celebrating the richness of
@@ -78,7 +78,6 @@ const Gallery = () => {
           </div>
         ))}
       </div>
-
       {selectedImage && (
         <div className="fixed inset-0 bg-black bg-opacity-75 flex justify-center items-center z-50">
           <div className="relative w-full max-w-4xl mx-4">
