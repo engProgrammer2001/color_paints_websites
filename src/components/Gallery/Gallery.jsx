@@ -39,7 +39,7 @@ const Gallery = () => {
       setCurrentIndex(currentIndex + 1);
     }
   };
-
+  
   const prevImage = () => {
     if (currentIndex > 0) {
       setSelectedImage(images[currentIndex - 1]);

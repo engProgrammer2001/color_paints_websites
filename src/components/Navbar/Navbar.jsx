@@ -9,26 +9,35 @@ function Navbar() {
   const activeStyle = "bg-white text-teal-500 font-bold px-3 py-2 rounded-md";
 
   const handleLinkClick = () => {
-    setIsOpen(false); 
+    setIsOpen(false);
   };
 
   return (
-    <nav className="bg-gradient-to-r from-teal-500 to-pink-500 p-2 px-6">
+    <nav className="bg-gradient-to-r from-teal-500 to-pink-500 p-2 ">
       <div className="flex justify-between items-center">
         {/* Logo */}
         <div>
           <NavLink to="/">
             <img
-              src="assets/logo/kkhomepaintinglogo.jpg"
+              src="assets/logo/logo.jpeg"
               alt="KK Home Painting"
               className="h-20 rounded-full cursor-pointer"
             />
           </NavLink>
         </div>
-
+        {/* call button for mobile */}
+        <div className="block lg:hidden">
+          <NavLink
+            to="tel:7991231430"
+            onClick={handleLinkClick}
+            className="bg-orange-400 px-2 py-1 rounded-lg text-white hover:text-gray-100 w-full block text-center text-lg"
+          >
+            +91 7991231430
+          </NavLink>
+        </div>
         {/* Toggle Button for Mobile */}
         <button
-          className="text-white text-2xl md:hidden"
+          className="text-slate-800 text-4xl md:hidden bg-white rounded-lg"
           onClick={() => setIsOpen(!isOpen)}
         >
           ☰
@@ -124,7 +133,7 @@ function Navbar() {
       </div>
       {/* Toggle Menu for Mobile */}
       {isOpen && (
-        <div className="md:hidden mt-4 space-y-2">
+        <div className="md:hidden mt-8 space-y-2">
           <NavLink
             to="/"
             onClick={handleLinkClick}
@@ -190,13 +199,6 @@ function Navbar() {
             }
           >
             Contact
-          </NavLink>
-          <NavLink
-            to="tel:7991231430"
-            onClick={handleLinkClick}
-            className="bg-gray-700 px-5 py-3 rounded-lg text-white hover:text-gray-300 w-full block text-center"
-          >
-            Get Quote
           </NavLink>
         </div>
       )}

@@ -1,5 +1,4 @@
 import React from "react";
-import { FaWhatsapp, FaPhone } from "react-icons/fa";
 
 const Footer = () => {
   return (
@@ -15,7 +14,7 @@ const Footer = () => {
               <h3 className="text-2xl font-semibold mb-4">About Us</h3>
               <div>
                 <img
-                  src="/assets/logo/kkhomepaintinglogo.jpg"
+                  src="/assets/logo/logo.jpeg"
                   alt=""
                   className="h-52 w-52 rounded-full"
                 />
@@ -107,29 +106,16 @@ const Footer = () => {
           {/* Second Row for Copyright */}
           <div className="mt-8 text-center border-t border-gray-700 pt-4">
             <p className="text-sm">
-              &copy; {new Date().getFullYear()} Painting Service Company. All
-              rights reserved.
+              &copy; {new Date().getFullYear()} All rights reserved. Developed
+              by{" "}
+              <a
+                href="https://divywebb.com/"
+                className="text-orange-400 font-bold"
+              >
+                Divy Webb Creation
+              </a>
             </p>
           </div>
-        </div>
-        {/* Floating Icons */}
-        <div className="absolute left-4 bottom-4">
-          <a
-            href="tel:7991231430"
-            className="text-blue-700 p-3 rounded-full  transition"
-            aria-label="Call Us"
-          >
-            <FaPhone size={50} />
-          </a>
-        </div>
-        <div className="absolute right-8 bottom-4">
-          <a
-            href="https://wa.link/gs6gx7"
-            className="text-green-400 p-3 rounded-full transition"
-            aria-label="WhatsApp Us"
-          >
-            <FaWhatsapp size={54} />
-          </a>
         </div>
       </footer>
     </>

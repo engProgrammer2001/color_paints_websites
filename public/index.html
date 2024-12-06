@@ -3,20 +3,76 @@
 
 <head>
   <meta charset="utf-8" />
-  <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+  <link rel="icon" type="image/jpeg" href="%PUBLIC_URL%/assets/logo/logo.jpeg" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#000000" />
-  <meta name="description" content="Web site created using create-react-app" />
+
+  <!-- Meta Tags for SEO -->
+  <meta name="description" content="KK Painting Company offers a wide range of professional painting services in Bengaluru and across India, including interior, exterior, residential, commercial, villa, bungalow, apartment, enamel, and Asian Paints painting services." />
+  <meta name="keywords" content="Painting services, Interior painting, Exterior painting, Residential painting, Commercial painting, Bengaluru painting, House painting, Villa painting, Bungalow painting, Apartment painting, Enamel painting, Asian Paints painting, Rental flats painting, Home painting, Professional painting services India, Affordable painting services, Best painting company Bengaluru, Professional home painters, Wall painting services, High-quality painting services" />
+  
+  <!-- Social Media Meta Tags (Open Graph) -->
+  <meta property="og:title" content="KK Painting Company - Professional Painting Services in Bengaluru" />
+  <meta property="og:description" content="KK Painting Company offers expert painting services for residential, commercial, and industrial spaces, including interior and exterior painting, across India. Affordable and quality service guaranteed." />
+  <meta property="og:image" content="%PUBLIC_URL%/assets/logo/logo.jpeg" />
+  <meta property="og:url" content="https://kkhomepaintingservices.com/" />
+  <meta property="og:type" content="website" />
+  
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:title" content="KK Painting Company - Professional Painting Services" />
+  <meta property="twitter:description" content="KK Painting Company provides expert interior and exterior painting services for homes, offices, and commercial spaces across India." />
+  <meta property="twitter:image" content="%PUBLIC_URL%/assets/logo/logo.jpeg" />
+
+  <!-- Other Required Meta Tags -->
+  <meta name="robots" content="index, follow" />
+  
+  <!-- Apple Touch Icon -->
   <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
 
+  <!-- Web Manifest -->
   <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
 
-  <title>KK Painting Company</title>
+  <title>KK Painting Company - Professional Painting Services Across India</title>
+
+  <!-- Additional CSS (if needed) -->
+  <link rel="stylesheet" href="%PUBLIC_URL%/styles.css" />
 </head>
 
 <body>
   <noscript>You need to enable JavaScript to run this app.</noscript>
   <div id="root"></div>
+
+  <!-- JSON-LD Structured Data (Schema Markup for Local Business) -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "PaintingContractor",
+      "name": "KK Home Painting Service Company",
+      "url": "https://kkhomepaintingservices.com",
+      "logo": "%PUBLIC_URL%/assets/logo/logo.jpeg",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+91-7991231430",
+        "contactType": "Customer Service",
+        "areaServed": "IN",
+        "availableLanguage": "English"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "11th Cross Road, Munnekollal Mein Rd, Thubarahalli, Munnekollal, Bengaluru, Karnataka",
+        "addressLocality": "Bengaluru",
+        "addressRegion": "Karnataka",
+        "postalCode": "560037",
+        "addressCountry": "IN"
+      },
+      "sameAs": [
+        "https://www.instagram.com/kk_home_painting_service/",
+        "https://www.instagram.com/kk_home_painting_service/",
+        "https://www.instagram.com/kk_home_painting_service/"
+      ]
+    }
+  </script>
+  
 </body>
 
 </html>
